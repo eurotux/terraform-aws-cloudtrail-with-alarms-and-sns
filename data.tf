@@ -5,7 +5,7 @@ data "aws_iam_policy_document" "cloudtrail_assume_policy" {
     effect  = "Allow"
     actions = ["sts:AssumeRole"]
 
-    principals = {
+    principals {
       type        = "Service"
       identifiers = ["cloudtrail.amazonaws.com"]
     }
@@ -30,7 +30,7 @@ data "aws_iam_policy_document" "cloudtrail_alarm_policy" {
   statement {
     effect = "Allow"
 
-    principals = {
+    principals {
       type        = "AWS"
       identifiers = ["*"]
     }
@@ -62,7 +62,7 @@ data "aws_iam_policy_document" "cloudtrail_bucket" {
     sid    = "AWSCloudTrailPermissionsCheck"
     effect = "Allow"
 
-    principals = {
+    principals {
       type        = "Service"
       identifiers = ["cloudtrail.amazonaws.com"]
     }
@@ -75,7 +75,7 @@ data "aws_iam_policy_document" "cloudtrail_bucket" {
     sid    = "AWSCloudTrailWrite"
     effect = "Allow"
 
-    principals = {
+    principals {
       type        = "Service"
       identifiers = ["cloudtrail.amazonaws.com"]
     }
