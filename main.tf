@@ -4,7 +4,7 @@ resource "aws_cloudtrail" "cloudtrail_default" {
   s3_bucket_name             = "${aws_s3_bucket.cloudtrail_bucket.id}"
   enable_logging             = "${var.enable_logging}"
   enable_log_file_validation = "${var.enable_log_file_validation}"
-  cloud_watch_logs_group_arn = "${aws_cloudwatch_log_group.log_group_default.arn}"
+  cloud_watch_logs_group_arn = "${aws_cloudwatch_log_group.log_group_default.arn}:*"
   cloud_watch_logs_role_arn  = "${aws_iam_role.cloudtrail_role.arn}"
 }
 
