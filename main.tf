@@ -6,6 +6,8 @@ resource "aws_cloudtrail" "cloudtrail_default" {
   enable_log_file_validation = "${var.enable_log_file_validation}"
   cloud_watch_logs_group_arn = "${aws_cloudwatch_log_group.log_group_default.arn}:*"
   cloud_watch_logs_role_arn  = "${aws_iam_role.cloudtrail_role.arn}"
+  
+  tags = var.tags
 }
 
 resource "aws_cloudwatch_log_group" "log_group_default" {
